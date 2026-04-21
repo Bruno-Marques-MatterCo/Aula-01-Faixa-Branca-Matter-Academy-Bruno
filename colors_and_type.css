@@ -1,0 +1,306 @@
+/* ============================================================
+   MATTER ACADEMY — Design Tokens
+   Colors & Type
+   ============================================================
+
+   Brand summary:
+   - Primary green #CCFC00 (bright, electric, spring/lime) — the
+     "standout" color. Use sparingly: accents, key CTAs, ONE logo
+     mark, a single highlighted element.
+   - Slate #424D5E — primary text and neutral anchor. Pairs with
+     near-black #0B0D10 for maximum-contrast surfaces (hero,
+     full-bleed sections, the A.I. Next/Shift wordmarks).
+   - Off-white #F5F7F5 — the "paper" surface. Avoid pure white.
+   - Type: Rubik for display/body (geometric humanist sans with
+     the rounded terminals seen in the "matter" wordmark).
+     Inter as fallback/secondary. Condensed display is JetBrains
+     Mono or a thin geometric for the "A.I." sub-brands.
+
+   NOTE ON FONTS:
+   - Matter Academy ships with SÖHNE (Klim Type Foundry) as the
+     primary brand typeface. Full weight range is available in
+     fonts/ (Extraleicht → Extrafett, roman + kursiv).
+   - Söhne weight naming → CSS weight:
+       Extraleicht     200    Halbfett          600
+       Leicht          300    Dreiviertelfett   700
+       Buch            400    Fett              800
+       Kräftig         500    Extrafett         900
+     ("Kursiv" = italic.)
+   - JetBrains Mono remains for mono via Google Fonts.
+   ============================================================ */
+
+/* ----- Söhne @font-face (loaded locally from fonts/) ----- */
+@font-face { font-family: "Söhne"; font-style: normal; font-weight: 200; src: url("fonts/Sohne-Extraleicht.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Söhne"; font-style: normal; font-weight: 300; src: url("fonts/Sohne-Leicht.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Söhne"; font-style: italic; font-weight: 300; src: url("fonts/Sohne-LeichtKursiv.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Söhne"; font-style: normal; font-weight: 400; src: url("fonts/Sohne-Buch.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Söhne"; font-style: normal; font-weight: 500; src: url("fonts/Sohne-Kraftig.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Söhne"; font-style: normal; font-weight: 600; src: url("fonts/Sohne-Halbfett.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Söhne"; font-style: normal; font-weight: 700; src: url("fonts/Sohne-Dreiviertelfett.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Söhne"; font-style: normal; font-weight: 800; src: url("fonts/Sohne-Fett.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Söhne"; font-style: normal; font-weight: 900; src: url("fonts/Sohne-Extrafett.otf") format("opentype"); font-display: swap; }
+
+/* ----- JetBrains Mono via Google Fonts ----- */
+/* <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"> */
+
+:root {
+  /* =====================================================
+     COLORS — Primary
+     ===================================================== */
+  --ma-green:          #CCFC00;   /* signature "standout" lime */
+  --ma-green-hover:    #B8E600;   /* 8% darker — for hover */
+  --ma-green-press:    #A3CC00;   /* 18% darker — pressed */
+  --ma-green-soft:     #EFFFB0;   /* 20% tint on white */
+  --ma-green-wash:     #F8FFDE;   /* 6% tint for subtle fills */
+
+  /* =====================================================
+     COLORS — Neutrals (Slate scale — extracted from logo)
+     ===================================================== */
+  --ma-slate-950:      #0B0D10;   /* near-black, felt-texture bg */
+  --ma-slate-900:      #1A1F27;
+  --ma-slate-800:      #2A313C;
+  --ma-slate-700:      #363F4C;
+  --ma-slate-600:      #424D5E;   /* ⭐ logo slate — primary text */
+  --ma-slate-500:      #5A6678;
+  --ma-slate-400:      #7F8A9B;
+  --ma-slate-300:      #A7B0BD;
+  --ma-slate-200:      #CCD2DA;
+  --ma-slate-100:      #E4E8ED;
+  --ma-slate-50:       #F2F4F6;
+
+  /* Surfaces */
+  --ma-paper:          #F5F7F5;   /* off-white body bg */
+  --ma-paper-elev:     #FFFFFF;   /* card on paper */
+  --ma-ink:            #0B0D10;
+
+  /* =====================================================
+     COLORS — Semantic
+     ===================================================== */
+  --ma-success:        #6EBF4D;   /* greener, less electric than brand */
+  --ma-warning:        #F2B441;
+  --ma-danger:         #E0523C;
+  --ma-info:           #4E7DC4;
+
+  /* Foreground / Background roles */
+  --fg-1:              var(--ma-slate-600);   /* primary text */
+  --fg-2:              var(--ma-slate-500);   /* secondary */
+  --fg-3:              var(--ma-slate-400);   /* tertiary / meta */
+  --fg-invert:         var(--ma-paper);
+  --fg-accent:         var(--ma-green);
+  --fg-link:           var(--ma-slate-700);
+
+  --bg-1:              var(--ma-paper);
+  --bg-2:              var(--ma-paper-elev);
+  --bg-dark:           var(--ma-slate-950);
+  --bg-dark-2:         var(--ma-slate-900);
+  --bg-accent:         var(--ma-green);
+  --bg-wash:           var(--ma-green-wash);
+
+  --border-1:          var(--ma-slate-100);
+  --border-2:          var(--ma-slate-200);
+  --border-strong:     var(--ma-slate-600);
+  --border-dark:       rgba(255,255,255,0.08);
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --font-sans:         "Söhne", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display:      "Söhne", "Inter", system-ui, sans-serif;
+  --font-condensed:    "Söhne", "Inter", sans-serif; /* Söhne covers the A.I. NEXT / SHIFT style via weight contrast */
+  --font-mono:         "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Weights */
+  --w-thin:            200;
+  --w-light:           300;
+  --w-regular:         400;
+  --w-medium:          500;
+  --w-semibold:        600;
+  --w-bold:            700;
+  --w-black:           800;
+
+  /* Scale (modular, 1.200 ratio, based 16px) */
+  --fs-xs:             12px;
+  --fs-sm:             14px;
+  --fs-base:           16px;
+  --fs-md:             18px;
+  --fs-lg:             22px;
+  --fs-xl:             28px;
+  --fs-2xl:            36px;
+  --fs-3xl:            48px;
+  --fs-4xl:            64px;
+  --fs-5xl:            88px;
+  --fs-display:        120px;
+
+  --lh-tight:          1.05;
+  --lh-snug:           1.20;
+  --lh-normal:         1.45;
+  --lh-loose:          1.65;
+
+  --ls-tight:          -0.02em;  /* display */
+  --ls-snug:           -0.01em;  /* headings */
+  --ls-normal:         0;
+  --ls-wide:           0.08em;   /* eyebrows */
+  --ls-x-wide:         0.18em;   /* all-caps micro labels */
+
+  /* =====================================================
+     RADII / SHADOWS / SPACING
+     ===================================================== */
+  --r-xs:              4px;
+  --r-sm:              8px;
+  --r-md:              12px;
+  --r-lg:              18px;
+  --r-xl:              24px;
+  --r-2xl:             32px;
+  --r-pill:            999px;
+
+  /* Shadows — soft & tight, never glowy by default.
+     The "green glow" is reserved for the standout element. */
+  --shadow-1:          0 1px 2px rgba(11,13,16,0.04), 0 1px 1px rgba(11,13,16,0.03);
+  --shadow-2:          0 2px 6px rgba(11,13,16,0.06), 0 1px 2px rgba(11,13,16,0.04);
+  --shadow-3:          0 8px 24px rgba(11,13,16,0.08), 0 2px 4px rgba(11,13,16,0.04);
+  --shadow-4:          0 20px 48px rgba(11,13,16,0.12), 0 4px 12px rgba(11,13,16,0.06);
+  --shadow-focus:      0 0 0 3px rgba(204,252,0,0.45);
+  --shadow-glow:       0 0 48px rgba(204,252,0,0.55), 0 0 96px rgba(204,252,0,0.25);
+
+  /* Spacing scale (4px grid) */
+  --sp-1:              4px;
+  --sp-2:              8px;
+  --sp-3:              12px;
+  --sp-4:              16px;
+  --sp-5:              20px;
+  --sp-6:              24px;
+  --sp-8:              32px;
+  --sp-10:             40px;
+  --sp-12:             48px;
+  --sp-16:             64px;
+  --sp-20:             80px;
+  --sp-24:             96px;
+  --sp-32:             128px;
+
+  /* Motion */
+  --ease-out:          cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:       cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-snap:         cubic-bezier(0.4, 0, 0.1, 1);
+  --dur-fast:          140ms;
+  --dur-base:          220ms;
+  --dur-slow:          380ms;
+}
+
+/* ============================================================
+   SEMANTIC TYPE — ready-to-use classes
+   ============================================================ */
+
+.ma-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: var(--w-medium);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-x-wide);
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+
+.ma-display {
+  font-family: var(--font-display);
+  font-weight: var(--w-medium);
+  font-size: clamp(56px, 8vw, var(--fs-display));
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--fg-1);
+}
+
+.ma-h1 {
+  font-family: var(--font-display);
+  font-weight: var(--w-medium);
+  font-size: var(--fs-4xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-snug);
+  color: var(--fg-1);
+}
+
+.ma-h2 {
+  font-family: var(--font-display);
+  font-weight: var(--w-medium);
+  font-size: var(--fs-3xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-snug);
+  color: var(--fg-1);
+}
+
+.ma-h3 {
+  font-family: var(--font-display);
+  font-weight: var(--w-semibold);
+  font-size: var(--fs-2xl);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+
+.ma-h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--w-semibold);
+  font-size: var(--fs-xl);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+
+.ma-h5 {
+  font-family: var(--font-sans);
+  font-weight: var(--w-semibold);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+
+.ma-lead {
+  font-family: var(--font-sans);
+  font-weight: var(--w-light);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+}
+
+.ma-body {
+  font-family: var(--font-sans);
+  font-weight: var(--w-regular);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+}
+
+.ma-body-sm {
+  font-family: var(--font-sans);
+  font-weight: var(--w-regular);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+}
+
+.ma-micro {
+  font-family: var(--font-sans);
+  font-weight: var(--w-medium);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-snug);
+  color: var(--fg-3);
+}
+
+.ma-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: 0;
+  color: var(--fg-2);
+}
+
+/* The "A.I." style — mixes a heavy geometric cap with a thin condensed companion.
+   Used for sub-brand wordmarks only. */
+.ma-subbrand {
+  font-family: var(--font-condensed);
+  font-weight: var(--w-light);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fg-1);
+}
+.ma-subbrand .heavy {
+  font-family: var(--font-display);
+  font-weight: var(--w-black);
+  letter-spacing: -0.02em;
+  margin-right: 0.18em;
+}
